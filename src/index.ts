@@ -57,6 +57,9 @@ app.post(
     });
 
     try {
+      console.log(process.env.EMAIL_USER);
+      console.log(process.env.EMAIL_PASSWORD);
+
       const success = await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_SEND_TO,
