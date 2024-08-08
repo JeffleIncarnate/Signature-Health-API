@@ -1,2 +1,5 @@
 dev:
-	pnpm run dev
+	pnpm start
+
+build:
+	pnpm build
