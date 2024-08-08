@@ -56,29 +56,33 @@ app.post(
       },
     });
 
-    try {
-      console.log(process.env.EMAIL_USER);
-      console.log(process.env.EMAIL_PASSWORD);
+    await new Promise((res, rej) => {
+      transporter.sendMail(
+        {
+          from: process.env.EMAIL_USER,
+          to: process.env.EMAIL_SEND_TO,
+          subject: "SIGNATURE HEALTH CONTACT FORM",
+          text: `Name: ${req.body.name}, Email: ${
+            req.body.email
+          }, Phone Number: ${
+            req.body.phoneNumber === ""
+              ? "No Number specified"
+              : req.body.phoneNumber
+          }, Message: ${req.body.message}`,
+        },
+        (err, info) => {
+          if (err) {
+            console.error(err);
+            rej(err);
+          } else {
+            console.log(info);
+            res(info);
+          }
+        }
+      );
+    });
 
-      const success = await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_SEND_TO,
-        subject: "SIGNATURE HEALTH CONTACT FORM",
-        text: `Name: ${req.body.name}, Email: ${
-          req.body.email
-        }, Phone Number: ${
-          req.body.phoneNumber === ""
-            ? "No Number specified"
-            : req.body.phoneNumber
-        }, Message: ${req.body.message}`,
-      });
-      if (success.response.split(" ")[2] === "OK") {
-        return res.sendStatus(200);
-      }
-    } catch (err) {
-      console.log(err);
-      return res.status(500).send(err);
-    }
+    return res.sendStatus(200);
   }
 );
 
