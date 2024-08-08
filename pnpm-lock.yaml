@@ -33,8 +33,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       nodemailer:
-        specifier: ^6.9.14
-        version: 6.9.14
+        specifier: 6.9.3
+        version: 6.9.3
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -538,8 +538,8 @@ packages:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
 
-  nodemailer@6.9.14:
-    resolution: {integrity: sha512-Dobp/ebDKBvz91sbtRKhcznLThrKxKt97GI2FAlAyy+fk19j73Uz3sBXolVtmcXjaorivqsbbbjDY+Jkt4/bQA==}
+  nodemailer@6.9.3:
+    resolution: {integrity: sha512-fy9v3NgTzBngrMFkDsKEj0r02U7jm6XfC3b52eoNV+GCrGj+s8pt5OqhiJdWKuw51zCTdiNR/IUD1z33LIIGpg==}
     engines: {node: '>=6.0.0'}
 
   nodemon@3.1.4:
@@ -1315,7 +1315,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  nodemailer@6.9.14: {}
+  nodemailer@6.9.3: {}
 
   nodemon@3.1.4:
     dependencies:
