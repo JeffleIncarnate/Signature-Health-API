@@ -49,15 +49,12 @@ app.post(
     }
 
     const transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
-      port: 587,
+      host: "smtp.office365.com", // Use the correct SMTP server
+      port: 587, // Use the correct port (587 for TLS)
+      secure: false, // Set to false for TLS
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
-      },
-      secure: false,
-      tls: {
-        rejectUnauthorized: false,
       },
     });
 
